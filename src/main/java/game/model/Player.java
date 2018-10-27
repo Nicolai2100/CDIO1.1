@@ -1,4 +1,4 @@
-package game;
+package game.model;
 
 import gui_main.GUI;
 
@@ -13,15 +13,14 @@ public class Player {
     private boolean doubleSixBool = false;
     private boolean won = false;
 
-    private static Player ref1;
-    private static Player ref2;
+    private static Player ref1, ref2;
 
     //Objects
     private DiceCup diceCup;
     private Message message;
 
     //Construktor
-    public Player(int aPlayerSumSofar , DiceCup diceCup, GUI gui){
+    public Player(int aPlayerSumSofar, DiceCup diceCup, GUI gui){
         playerSumSoFar = aPlayerSumSofar;
         this.diceCup = diceCup;
         this.gui = gui;
