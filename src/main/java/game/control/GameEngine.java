@@ -20,7 +20,7 @@ public class GameEngine {
         DiceCup diceCup = new DiceCup();
         Player player1 = new Player();
         Player player2 = new Player();
-        Message message = new Message(player1, player2, gui);
+        Message message = new Message();
 
         //Controllers
         DiceController diceController1 = new DiceController(die1);
@@ -30,28 +30,29 @@ public class GameEngine {
                 diceController2, gui);
         PlayerController playerController2 = new PlayerController(player2, diceCupController, diceController1,
                 diceController2, gui);
+        MessageController messageController = new MessageController(message, player1, player2, gui);
 
         //Method that gives an introduction to the game. Rules, etc.
-        message.startGame();
+        messageController.startGame();
 
         //Set player 1 name
 
-        message.startGame1();
+        messageController.enterNamePlayer1();
         player1.setName(gui.getUserString("Indtast player 1's navn: "));
         //Set player 2 name
-        message.startGame2();
+        messageController.enterNamePlayer2();
         player2.setName(gui.getUserString("Indtast player 2's navn: "));
 
         //Start the main game
         do {
-            message.player1sTurn();
+            messageController.player1sTurn();
             playerController1.playerRoll();
             //gui.setDice(diceCup1.getFaceValueDie1(), diceCup1.getFaceValueDie2());
 
             if (player1.getWon()){
                 break;
             }
-            message.player2sTurn();
+            messageController.player2sTurn();
             playerController2.playerRoll();
             //gui.setDice(diceCup1.getFaceValueDie1(), diceCup1.getFaceValueDie2());
 
@@ -63,7 +64,7 @@ public class GameEngine {
         while(!player1.getWon() || !player2.getWon());
 
         //Give a message about who won the game
-        message.playerHasWon();
+        messageController.playerHasWon();
 
 
         String svar = gui.getUserString("Vil du spille igen? tast ja/nej");
