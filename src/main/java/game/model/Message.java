@@ -21,11 +21,6 @@ public class Message {
     private String playerHaveAnExtraTurn = "You got two of equals! Roll again!";
     private String playerExtraTurnButLosePoints = "You got two 1's and lose all your points!"+ "\n" + "But you can Roll again!";
 
-    public Message(Player player1, Player player2){
-        this.player1 = player1;
-        this.player2 = player2;
-    }
-
     public String getStartGameS() {
         return startGameS;
     }
