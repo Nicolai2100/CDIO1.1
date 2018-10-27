@@ -25,12 +25,13 @@ public class GameEngine {
         DiceController diceController1 = new DiceController(die1);
         DiceController diceController2 = new DiceController(die2);
         DiceCupController diceCupController = new DiceCupController(diceCup, diceController1, diceController2);
+
+        Message message = new Message(player1,player2);
+
         PlayerController playerController1 = new PlayerController(player1, diceCupController, diceController1,
                 diceController2, gui);
         PlayerController playerController2 = new PlayerController(player2, diceCupController, diceController1,
                 diceController2, gui);
-
-        Message message = new Message(player1, player2);
         MessageController messageController = new MessageController(message, player1, player2, gui);
 
         //Method that gives an introduction to the game. Rules, etc.

@@ -5,10 +5,6 @@ public class Dice {
     private final int MAX = 6;
     private int faceValue;
 
-    //public Dice(){
-    //    faceValue = 1;
-    //}
-
     public int getFaceValue() {
         return faceValue;
     }

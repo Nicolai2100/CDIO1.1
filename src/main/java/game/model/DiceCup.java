@@ -3,7 +3,6 @@ package game.model;
 public class DiceCup {
 
     private int sum;
-    Dice die1, die2;
 
     public int getSum() {
         return sum;

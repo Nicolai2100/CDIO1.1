@@ -1,8 +1,5 @@
 package game.model;
 
-import game.control.PlayerController;
-import gui_main.GUI;
-
 public class Player {
     private String name = "1";
     private String playerRollSumString;
@@ -27,6 +24,7 @@ public class Player {
     public void setWon(boolean won) {
         this.won = won;
     }
+
     public int getPlayerSumSoFar() {
         return playerSumSoFar;
     }
@@ -55,10 +53,11 @@ public class Player {
         return doubleSixBool;
     }
 
-    public void setPlayerRollSumString(String playerRollSumString) {
-        this.playerRollSumString = playerRollSumString;
-    }
     public String getPlayerRollSumString() {
         return playerRollSumString;
+    }
+
+    public void setPlayerRollSumString(String playerRollSumString) {
+        this.playerRollSumString = playerRollSumString;
     }
 }

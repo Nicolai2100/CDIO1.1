@@ -25,7 +25,13 @@ public class MessageController {
             }
             gui.showMessage("Congratulations " + theVictor.getName() + "! You are victorious!");
         }
+        public void player1sTurn(){
+            gui.showMessage("It's " + player1.getName() + "'s turn! Press Enter to roll!");
+        }
 
+        public void player2sTurn(){
+            gui.showMessage("It's " + player2.getName() + "'s turn! Press enter to roll!");
+        }
         public void startGame(){
             gui.showMessage(model.getStartGameS());
         }
@@ -37,12 +43,7 @@ public class MessageController {
         public void enterNamePlayer2(){
             gui.showMessage(model.getEnterNamePlayer2());
         }
-        public void player1sTurn(){
-            gui.showMessage(model.getPlayer1sTurn());
-        }
-        public void player2sTurn(){
-            gui.showMessage(model.getPlayer2sTurn());
-        }
+
         public void playerWon()
         {
             gui.showMessage(model.getPlayerWon());

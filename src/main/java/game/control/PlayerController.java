@@ -12,7 +12,7 @@ public class PlayerController {
     private DiceCupController diceCup;
     private DiceController diceController1, diceController2;
     private MessageController messageController;
-    private Message message;
+    private Message message = new Message(ref1, ref2);
 
     //Construktor
     public PlayerController(Player model, DiceCupController diceCup, DiceController diceController1,
