@@ -14,14 +14,14 @@ public class GameEngine {
         //View
         GUI gui = new GUI();
 
-        //Models
+        //Model
         Dice die1 = new Dice();
         Dice die2 = new Dice();
         DiceCup diceCup = new DiceCup();
         Player player1 = new Player();
         Player player2 = new Player();
 
-        //Controllers
+        //Controller
         DiceController diceController1 = new DiceController(die1);
         DiceController diceController2 = new DiceController(die2);
         DiceCupController diceCupController = new DiceCupController(diceCup, diceController1, diceController2);
@@ -67,14 +67,10 @@ public class GameEngine {
         //Give a message about who won the game
         messageController.playerHasWon();
 
-
         String svar = gui.getUserString("Vil du spille igen? tast ja/nej");
         if (svar.equals("ja"))
             playGame();
-
         else
             gui.showMessage("Farvel");
-
-
     }
 }
