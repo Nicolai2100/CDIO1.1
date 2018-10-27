@@ -17,14 +17,14 @@ public class MessageController {
             this.gui = gui;
         }
 
-    public void playerHasWon(){
-        if (player1.getWon()){
-            theVictor = player1;
-        } else {
-            theVictor = player2;
+        public void playerHasWon(){
+            if (player1.getWon()){
+                theVictor = player1;
+            } else {
+                theVictor = player2;
+            }
+            gui.showMessage("Congratulations " + theVictor.getName() + "! You are victorious!");
         }
-        gui.showMessage("Congratulations " + theVictor.getName() + "! You are victorious!");
-    }
 
         public void startGame(){
             gui.showMessage(model.getStartGameS());

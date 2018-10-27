@@ -4,7 +4,7 @@ import game.control.PlayerController;
 import gui_main.GUI;
 
 public class Player {
-    private String name;
+    private String name = "1";
     private String playerRollSumString;
     private int playerRollSum;
     private int playerSumSoFar = 0;

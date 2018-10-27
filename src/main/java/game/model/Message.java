@@ -1,10 +1,13 @@
 package game.model;
 
-import game.model.Player;
-
 public class Message {
 
-    private Player player1, player2,theVictor;
+    private Player player1, player2, theVictor;
+
+    public Message(Player player1, Player player2){
+        this.player1 = player1;
+        this.player2 = player2;
+    }
 
     private String startGameS = "Welcome to the game.Dice Game! \n" +
                 "The game.Dice Game is a game between two persons. Each player takes turns throwing two dice in a dice cup.\n" +

@@ -20,7 +20,6 @@ public class GameEngine {
         DiceCup diceCup = new DiceCup();
         Player player1 = new Player();
         Player player2 = new Player();
-        Message message = new Message();
 
         //Controllers
         DiceController diceController1 = new DiceController(die1);
@@ -30,6 +29,8 @@ public class GameEngine {
                 diceController2, gui);
         PlayerController playerController2 = new PlayerController(player2, diceCupController, diceController1,
                 diceController2, gui);
+
+        Message message = new Message(player1, player2);
         MessageController messageController = new MessageController(message, player1, player2, gui);
 
         //Method that gives an introduction to the game. Rules, etc.
@@ -37,10 +38,10 @@ public class GameEngine {
 
         //Set player 1 name
         messageController.enterNamePlayer1();
-        player1.setName(gui.getUserString("Indtast player 1's navn: "));
+        player1.setName(gui.getUserString(""));
         //Set player 2 name
         messageController.enterNamePlayer2();
-        player2.setName(gui.getUserString("Indtast player 2's navn: "));
+        player2.setName(gui.getUserString(""));
 
         //Start the main game
         do {
