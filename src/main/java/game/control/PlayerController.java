@@ -35,14 +35,15 @@ public class PlayerController {
         if (diceController1.getFaceValue() == diceController2.getFaceValue()){
             playerGotTwoOfEqualValue();
         }
-        //If the player doesn't roll two dice of equal value, the sum of the dice will be saved in the playerSumSoFar.
+        //If the player doesn't roll two dice of equal value, the sum of the
+        // dice will be saved in the playerSumSoFar.
         else {
                 updatePlayerSum();
         }
     }
     //Valuates what to do if the player rolls two dice of equal value.
     public void playerGotTwoOfEqualValue(){
-        if (model.getPlayerRollSum() >= 40){
+        if (model.getPlayerSumSoFar() >= 40){
             model.setWon(true);
             updatePlayerSum();
             messageController.playerWon();}
@@ -50,15 +51,12 @@ public class PlayerController {
         else if ( diceController1.getFaceValue() == 1 && 1 == diceController2.getFaceValue()) {
             model.setPlayerSumSoFar(0);
             messageController.playerExtraTurnButLosePoints();
-
-            model.setPlayerRollSumString(model.getName() + "'s" + ". Current score: " + "0");
-            gui.showMessage(model.getPlayerRollSumString());
+            gui.showMessage(model.getName() + "'s" + ". Current score: " + "0");
             playerRoll();
         }
         else if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6){
-            updatePlayerSum();
             playerWonByDoubleSix();
-            model.setLastRollSum(model.getPlayerRollSum());
+
         }
         //(playerSumSoFar < 40)
         else{
@@ -74,19 +72,20 @@ public class PlayerController {
             gui.showMessage("You win because you got two double sixes in a row!!!");
         }
         else{
+            updatePlayerSum();
             messageController.playerHaveAnExtraTurn();
             playerRoll();
         }
     }
     public void updatePlayerSum(){
         model.setPlayerRollSum(diceCup.getSum());
-        model.setPlayerSumSoFar(model.getPlayerSumSoFar()+model.getPlayerRollSum());
+        model.setPlayerSumSoFar((model.getPlayerSumSoFar()+model.getPlayerRollSum()));
         model.setLastRollSum(model.getPlayerRollSum());
 
         //Prints out the output of the turn.
-        model.setPlayerRollSumString( model.getName() + "'s sum is " + model.getPlayerRollSum()
+        gui.showMessage(model.getName() + "'s sum is " + model.getPlayerRollSum()
                 + ". Current score: " + model.getPlayerSumSoFar() + "\n");
-        gui.showMessage(model.getPlayerRollSumString());
+
 
     }
 }
