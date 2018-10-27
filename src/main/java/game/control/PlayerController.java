@@ -9,9 +9,10 @@ public class PlayerController {
     private GUI gui;
     private Player model;
     private static Player ref1, ref2;
-    private Message message;
     private DiceCupController diceCup;
     private DiceController diceController1, diceController2;
+    private MessageController messageController;
+    private Message message;
 
     //Construktor
     public PlayerController(Player model, DiceCupController diceCup, DiceController diceController1,
@@ -21,7 +22,8 @@ public class PlayerController {
         this.gui = gui;
         this.diceController1 = diceController1;
         this.diceController2 = diceController2;
-        message = new Message(ref1, ref2, gui);
+        messageController = new MessageController(message, ref1, ref2, gui);
+
     }
 
     //The method of the game that helps control the game flow.
@@ -59,11 +61,11 @@ public class PlayerController {
             model.setPlayerRollSumString(model.getName()+ "'s sum is " + model.getLastRollSum() + ". " +
                     "Current score: " + model.getPlayerSumSoFar()+ "\n");
             gui.showMessage(model.getPlayerRollSumString());
-            message.playerWon();}
+            messageController.playerWon();}
 
         else if ( diceController1.getFaceValue() == 1 && 1 == diceController2.getFaceValue()) {
             model.setPlayerSumSoFar(0);
-            message.playerExtraTurnButLosePoints();
+            messageController.playerExtraTurnButLosePoints();
 
             model.setPlayerRollSumString(model.getName() + "'s" + ". Current score: " + "0");
             gui.showMessage(model.getPlayerRollSumString());
@@ -88,7 +90,7 @@ public class PlayerController {
             model.setPlayerRollSumString(model.getName()+ "'s sum is " + model.getLastRollSum() + ". " +
                     "Current score: " + model.getPlayerSumSoFar()+ "\n");
             gui.showMessage(model.getPlayerRollSumString());
-            message.playerHaveAnExtraTurn();
+            messageController.playerHaveAnExtraTurn();
             playerRoll();
         }
     }
@@ -99,11 +101,8 @@ public class PlayerController {
             gui.showMessage("You win because you got two double sixes in a row!!!");
         }
         else{
-            message.playerHaveAnExtraTurn();
+            messageController.playerHaveAnExtraTurn();
             playerRoll();
         }
     }
-
-
-
 }

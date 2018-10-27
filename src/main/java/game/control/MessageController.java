@@ -12,8 +12,8 @@ public class MessageController {
 
         public MessageController(Message model, Player player1, Player player2, GUI gui){
             this.model = model;
-            //this.player1 = player1;
-            //this.player2 = player2;
+            this.player1 = player1;
+            this.player2 = player2;
             this.gui = gui;
         }
 

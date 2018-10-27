@@ -36,7 +36,6 @@ public class GameEngine {
         messageController.startGame();
 
         //Set player 1 name
-
         messageController.enterNamePlayer1();
         player1.setName(gui.getUserString("Indtast player 1's navn: "));
         //Set player 2 name
