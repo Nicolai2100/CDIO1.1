@@ -32,6 +32,7 @@ public class MessageController {
         public void player2sTurn(){
             gui.showMessage("It's " + player2.getName() + "'s turn! Press enter to roll!");
         }
+
         public void startGame(){
             gui.showMessage(model.getStartGameS());
         }
