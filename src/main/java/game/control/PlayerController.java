@@ -25,23 +25,18 @@ public class PlayerController {
         messageController = new MessageController(message, ref1, ref2, gui);
     }
 
-    //The method of the game that helps control the game flow.
     public void playerRoll(){
-        //The method call the method diceCup.rollSum() to roll the dice after the player pushes the return key.
-        //The values of each die is printed and the rest of the method is valuating this result.
         diceCup.rollSum();
         gui.setDice(diceController1.getFaceValue(), diceController2.getFaceValue());
 
         if (diceController1.getFaceValue() == diceController2.getFaceValue()){
             playerGotTwoOfEqualValue();
         }
-        //If the player doesn't roll two dice of equal value, the sum of the
-        // dice will be saved in the playerSumSoFar.
         else {
                 updatePlayerSum();
         }
     }
-    //Valuates what to do if the player rolls two dice of equal value.
+
     public void playerGotTwoOfEqualValue(){
         if (model.getPlayerSumSoFar() >= 40){
             model.setWon(true);
@@ -56,7 +51,6 @@ public class PlayerController {
         }
         else if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6){
             playerWonByDoubleSix();
-
         }
         //(playerSumSoFar < 40)
         else{

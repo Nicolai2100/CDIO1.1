@@ -69,7 +69,10 @@ public class GameEngine {
         String svar = gui.getUserString("Vil du spille igen? tast ja/nej");
         if (svar.equals("ja"))
             playGame();
-        else
+        else{
             gui.showMessage("Farvel");
+            System.exit(1);
+
+        }
     }
 }
