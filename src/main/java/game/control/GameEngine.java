@@ -1,14 +1,10 @@
 package game.control;
+
 import game.model.Dice;
 import game.model.Message;
 import game.model.DiceCup;
 import game.model.Player;
 import game.view.GUI2;
-import gui_fields.GUI_Field;
-import gui_fields.GUI_Street;
-import gui_main.GUI;
-
-import java.awt.*;
 
 public class GameEngine {
 
@@ -53,14 +49,12 @@ public class GameEngine {
             guiKlasse.player1TurnGui();
             playerController1.playerRoll();
             guiKlasse.player1TurnUpdate(playerController1);
-
             if (player1.getWon()){
                 break;
             }
             guiKlasse.player2TurnGui();
             playerController2.playerRoll();
             guiKlasse.player2TurnUpdate(playerController2);
-
             if (player2.getWon()){
                 break;
             }
@@ -71,6 +65,5 @@ public class GameEngine {
         //Give a message about who won the game
         guiKlasse.playerWonGui();
         guiKlasse.playAgain();
-
     }
 }
