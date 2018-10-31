@@ -15,7 +15,7 @@ public class GameEngine {
     public GameEngine(){ }
 
     //The method from where the game runs.
-    public void playGame(){
+    public static void playGame(){
 
         //Model
         Dice die1 = new Dice();
@@ -52,16 +52,14 @@ public class GameEngine {
         do {
             guiKlasse.player1TurnGui();
             playerController1.playerRoll();
-            guiKlasse.setDiceGui();
-            guiKlasse.setPlayer1Car();
+            guiKlasse.player1TurnUpdate(playerController1);
 
             if (player1.getWon()){
                 break;
             }
             guiKlasse.player2TurnGui();
             playerController2.playerRoll();
-            guiKlasse.setDiceGui();
-            guiKlasse.setPlayer2Car();
+            guiKlasse.player2TurnUpdate(playerController2);
 
             if (player2.getWon()){
                 break;
@@ -71,15 +69,8 @@ public class GameEngine {
         while(!player1.getWon() || !player2.getWon());
 
         //Give a message about who won the game
-        //messageController.playerHasWon();
+        guiKlasse.playerWonGui();
+        guiKlasse.playAgain();
 
-        /*String svar = gui.getUserString("Vil du spille igen? tast ja/nej");
-        if (svar.equals("ja"))
-            playGame();
-        else{
-            gui.showMessage("Farvel");
-            System.exit(1);
-
-        }*/
     }
 }

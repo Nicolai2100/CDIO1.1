@@ -2,7 +2,6 @@ package game.control;
 
 import game.model.Message;
 import game.model.Player;
-import gui_main.GUI;
 
 public class MessageController {
 
@@ -15,14 +14,14 @@ public class MessageController {
             this.player2 = player2;
         }
 
-
-        public void playerHasWon(){
+        public String playerHasWon(){
             if (player1.getWon()){
                 theVictor = player1;
             } else {
                 theVictor = player2;
             }
             String playerWonString = "Congratulations " + theVictor.getName() + "! You are victorious!";
+            return playerWonString;
         }
         public String player1sTurn(){ String returnString = ("It's " + player1.getName() + "'s turn! Press Enter to roll!");
         return returnString;

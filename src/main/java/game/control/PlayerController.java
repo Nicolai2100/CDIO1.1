@@ -94,4 +94,7 @@ public class PlayerController {
     public void setName(String name){
         model.setName(name);
     }
+    public int getSumSofar(){
+        return model.getPlayerSumSoFar();
+    }
 }
