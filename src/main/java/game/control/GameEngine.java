@@ -25,8 +25,6 @@ public class GameEngine {
         DiceController diceController1 = new DiceController(die1);
         DiceController diceController2 = new DiceController(die2);
         DiceCupController diceCupController = new DiceCupController(diceCup, diceController1, diceController2);
-
-        //Controller
         PlayerController playerController1 = new PlayerController(player1, diceCupController, diceController1,
                 diceController2);
         PlayerController playerController2 = new PlayerController(player2, diceCupController, diceController1,
@@ -34,27 +32,27 @@ public class GameEngine {
         MessageController messageController = new MessageController(message, player1, player2);
 
         //View
-        GUI2 guiKlasse = new GUI2(playerController1, playerController2, messageController,
+        GUI2 gui = new GUI2(playerController1, playerController2, messageController,
                 diceCupController, diceController1, diceController2);
 
-        guiKlasse.setGameUpGui();
-        guiKlasse.startGameGui();
+        gui.setGameUpGui();
+        gui.startGameGui();
 
         //Set player names
-        guiKlasse.enterNamePlayer1();
-        guiKlasse.enterNamePlayer2();
+        gui.enterNamePlayer1();
+        gui.enterNamePlayer2();
 
         //Start the main game
         do {
-            guiKlasse.player1TurnGui();
+            gui.player1TurnGui();
             playerController1.playerRoll();
-            guiKlasse.player1TurnUpdate(playerController1);
+            gui.player1TurnUpdate(playerController1);
             if (player1.getWon()){
                 break;
             }
-            guiKlasse.player2TurnGui();
+            gui.player2TurnGui();
             playerController2.playerRoll();
-            guiKlasse.player2TurnUpdate(playerController2);
+            gui.player2TurnUpdate(playerController2);
             if (player2.getWon()){
                 break;
             }
@@ -63,7 +61,7 @@ public class GameEngine {
         while(!player1.getWon() || !player2.getWon());
 
         //Give a message about who won the game
-        guiKlasse.playerWonGui();
-        guiKlasse.playAgain();
+        gui.playerWonGui();
+        gui.playAgain();
     }
 }

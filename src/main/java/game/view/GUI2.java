@@ -10,13 +10,13 @@ import java.awt.*;
 
 public class GUI2 {
 
-    PlayerController player1, player2;
-    MessageController message;
-    DiceCupController diceCup;
-    DiceController diceController1, diceController2;
-    static GUI gui = guiCreator();
-    static GUI_Field[] felter;
-    GUI_Player guiPlayer1, guiPlayer2;
+    private PlayerController player1, player2;
+    private MessageController message;
+    private DiceCupController diceCup;
+    private DiceController diceController1, diceController2;
+    private static GUI gui = guiCreator();
+    private static GUI_Field[] felter;
+    private GUI_Player guiPlayer1, guiPlayer2;
 
     public GUI2(PlayerController player1, PlayerController player2, MessageController message,
                 DiceCupController diceCup, DiceController diceController1, DiceController diceController2) {
@@ -84,7 +84,6 @@ public class GUI2 {
     public void enterNamePlayer1() {
         gui.showMessage(message.enterNamePlayer1());
         player1.setName(gui.getUserString(""));
-
     }
 
     public void enterNamePlayer2() {
@@ -137,7 +136,6 @@ public class GUI2 {
         else{
             gui.showMessage("Farvel");
             System.exit(1);
-
         }
     }
     /*Bilag 1 Metoder i GUI'en (teksten er fra javadoc, derfor er den på engelsk)
