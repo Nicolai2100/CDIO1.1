@@ -1,6 +1,5 @@
 package game.control;
 
-import game.model.DiceCup;
 import game.model.Message;
 import game.model.Player;
 import gui_main.GUI;
@@ -16,13 +15,13 @@ public class PlayerController {
 
     //Construktor
     public PlayerController(Player model, DiceCupController diceCup, DiceController diceController1,
-                            DiceController diceController2, GUI gui){
+                            DiceController diceController2){
         this.model = model;
         this.diceCup = diceCup;
-        this.gui = gui;
+        //this.gui = gui;
         this.diceController1 = diceController1;
         this.diceController2 = diceController2;
-        messageController = new MessageController(message, ref1, ref2, gui);
+        messageController = new MessageController(message, ref1, ref2);
     }
 
     public void playerRoll(){
@@ -46,7 +45,7 @@ public class PlayerController {
         else if ( diceController1.getFaceValue() == 1 && 1 == diceController2.getFaceValue()) {
             model.setPlayerSumSoFar(0);
             messageController.playerExtraTurnButLosePoints();
-            gui.showMessage(model.getName() + "'s" + ". Current score: " + "0");
+            String returnString = (model.getName() + "'s" + ". Current score: " + "0");
             playerRoll();
         }
         else if (diceCup.die1.getFaceValue() == 6 && diceCup.die2.getFaceValue() == 6){
@@ -63,7 +62,7 @@ public class PlayerController {
     public void playerWonByDoubleSix(){
         if (model.getPlayerRollSum() == 12 && model.getLastRollSum() == 12){
             model.setWon(true);
-            gui.showMessage("You win because you got two double sixes in a row!!!");
+            String returnString = ("You win because you got two double sixes in a row!!!");
         }
         else{
             updatePlayerSum();
@@ -77,9 +76,23 @@ public class PlayerController {
         model.setLastRollSum(model.getPlayerRollSum());
 
         //Prints out the output of the turn.
-        gui.showMessage(model.getName() + "'s sum is " + model.getPlayerRollSum()
+        String returnString = (model.getName() + "'s sum is " + model.getPlayerRollSum()
                 + ". Current score: " + model.getPlayerSumSoFar() + "\n");
+    }
+    public String getName(){
+        return model.getName();
+    }
 
-
+    public void setBalance(int balance){
+        model.setBalance((model.getBalance()+balance));
+    }
+    public int getBalance(){
+        return model.getBalance();
+    }
+    public int getSum(){
+        return model.getPlayerRollSum();
+    }
+    public void setName(String name){
+        model.setName(name);
     }
 }

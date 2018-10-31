@@ -7,15 +7,14 @@ import gui_main.GUI;
 public class MessageController {
 
     Message model;
-    GUI gui;
     Player player1,player2, theVictor;
 
-        public MessageController(Message model, Player player1, Player player2, GUI gui){
+        public MessageController(Message model, Player player1, Player player2){
             this.model = model;
             this.player1 = player1;
             this.player2 = player2;
-            this.gui = gui;
         }
+
 
         public void playerHasWon(){
             if (player1.getWon()){
@@ -23,38 +22,40 @@ public class MessageController {
             } else {
                 theVictor = player2;
             }
-            gui.showMessage("Congratulations " + theVictor.getName() + "! You are victorious!");
+            String playerWonString = "Congratulations " + theVictor.getName() + "! You are victorious!";
         }
-        public void player1sTurn(){
-            gui.showMessage("It's " + player1.getName() + "'s turn! Press Enter to roll!");
+        public String player1sTurn(){ String returnString = ("It's " + player1.getName() + "'s turn! Press Enter to roll!");
+        return returnString;
         }
 
         public void player2sTurn(){
-            gui.showMessage("It's " + player2.getName() + "'s turn! Press enter to roll!");
+            String returnString = ("It's " + player2.getName() + "'s turn! Press enter to roll!");
         }
 
-        public void startGame(){
-            gui.showMessage(model.getStartGameS());
+        public String startGame(){
+            String returnString = (model.getStartGameS());
+            return returnString;
         }
 
-        public void enterNamePlayer1(){
-            gui.showMessage(model.getEnterNamePlayer1());
+        public String enterNamePlayer1(){
+            String returnString = (model.getEnterNamePlayer1());return returnString;
         }
 
         public void enterNamePlayer2(){
-            gui.showMessage(model.getEnterNamePlayer2());
+            String returnString = (model.getEnterNamePlayer2());
         }
 
         public void playerWon()
         {
-            gui.showMessage(model.getPlayerWon());
+            String returnString = (model.getPlayerWon());
         }
         public void playerHaveAnExtraTurn(){
-            gui.showMessage(model.getPlayerHaveAnExtraTurn());
+            String returnString = (model.getPlayerHaveAnExtraTurn());
         }
         public void playerExtraTurnButLosePoints(){
-            gui.showMessage(model.getPlayerExtraTurnButLosePoints());
+            String returnString = (model.getPlayerExtraTurnButLosePoints());
         }
+
 
 }
 

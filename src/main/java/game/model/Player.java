@@ -8,6 +8,7 @@ public class Player {
     private int lastRollSum;
     private boolean doubleSixBool = false;
     private boolean won = false;
+    private int balance = 1000;
 
     public String getName() {
         return name;
@@ -59,5 +60,13 @@ public class Player {
 
     public void setPlayerRollSumString(String playerRollSumString) {
         this.playerRollSumString = playerRollSumString;
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 }
