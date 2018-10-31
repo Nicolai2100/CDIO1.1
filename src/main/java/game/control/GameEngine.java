@@ -50,11 +50,10 @@ public class GameEngine {
 
         //Start the main game
         do {
-           // messageController.player1sTurn();
             guiKlasse.player1TurnGui();
             playerController1.playerRoll();
             guiKlasse.setDiceGui();
-            //gui.setDice(diceCup1.getFaceValueDie1(), diceCup1.getFaceValueDie2());
+            guiKlasse.setPlayer1Car();
 
             if (player1.getWon()){
                 break;
@@ -62,7 +61,7 @@ public class GameEngine {
             guiKlasse.player2TurnGui();
             playerController2.playerRoll();
             guiKlasse.setDiceGui();
-            //gui.setDice(diceCup1.getFaceValueDie1(), diceCup1.getFaceValueDie2());
+            guiKlasse.setPlayer2Car();
 
             if (player2.getWon()){
                 break;

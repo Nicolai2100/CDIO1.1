@@ -42,8 +42,8 @@ public class MessageController {
             String returnString = (model.getEnterNamePlayer1());return returnString;
         }
 
-        public void enterNamePlayer2(){
-            String returnString = (model.getEnterNamePlayer2());
+        public String enterNamePlayer2(){
+            String returnString = (model.getEnterNamePlayer2());return returnString;
         }
 
         public void playerWon()

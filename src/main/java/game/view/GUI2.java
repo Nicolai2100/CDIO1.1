@@ -25,6 +25,7 @@ public class GUI2{
     DiceController diceController1, diceController2;
     static GUI gui = guiCreator();
     static GUI_Field[] felter;
+    GUI_Player guiPlayer1, guiPlayer2;
 
     public GUI2(PlayerController player1, PlayerController player2, MessageController message,
                 DiceCupController diceCup, DiceController diceController1, DiceController diceController2){
@@ -77,18 +78,15 @@ public class GUI2{
         car[0].setPrimaryColor(Color.BLACK);
         car[1].setPrimaryColor(Color.BLUE);
 
-        GUI_Player guiPlayer1 = new GUI_Player(player1.getName(), player1.getBalance(), car[0]);
-        GUI_Player guiPlayer2 = new GUI_Player(player2.getName(), player2.getBalance(), car[1]);
-
+        guiPlayer1 = new GUI_Player(player1.getName(), player1.getBalance(), car[0]);
+        guiPlayer2 = new GUI_Player(player2.getName(), player2.getBalance(), car[1]);
 
         //    felter[0].hasCar(guiPlayer1);
         felter[player1.getSum()].setCar(guiPlayer1, true);
         felter[player2.getSum()].setCar(guiPlayer2, true);
-
     }
 
    public void startGameGui(){
-       gui.showMessage("snip");
         gui.showMessage(message.startGame());
    }
 
@@ -98,7 +96,7 @@ public class GUI2{
 
    }
     public void enterNamePlayer2(){
-    message.enterNamePlayer2();
+    gui.showMessage(message.enterNamePlayer2());
     player2.setName(gui.getUserString(""));
     }
     public void setDiceGui(){
@@ -110,6 +108,12 @@ public class GUI2{
     }
     public void player2TurnGui(){
         gui.showMessage(message.player2sTurn());
+    }
+    public void setPlayer1Car(){
+        felter[player1.getSum()].setCar(guiPlayer1, true);
+    }
+    public void setPlayer2Car(){
+        felter[player2.getSum()].setCar(guiPlayer2, true);
     }
 
     /*Bilag 1 Metoder i GUI'en (teksten er fra javadoc, derfor er den på engelsk)
