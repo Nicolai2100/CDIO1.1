@@ -54,28 +54,30 @@ public class GameEngine {
 
 
         //View
-        GUI2 guiKlasse = new GUI2(playerController1, playerController2, messageController, diceCupController);
-        //    GUI gui = guiKlasse.guiCreator();
-        //Method that gives an introduction to the game. Rules, etc.
+        GUI2 guiKlasse = new GUI2(playerController1, playerController2, messageController,
+                diceCupController, diceController1, diceController2);
+
+        guiKlasse.guiCreator();
         guiKlasse.startGameGui();
 
-        //Set player 1 name
+        //Set player names
         guiKlasse.enterNamePlayer1();
-        //Set player 2 name
         guiKlasse.enterNamePlayer2();
-        //player2.setName(gui.getUserString(""));
 
         //Start the main game
         do {
            // messageController.player1sTurn();
+            guiKlasse.player1TurnGui();
             playerController1.playerRoll();
+            guiKlasse.setDiceGui();
             //gui.setDice(diceCup1.getFaceValueDie1(), diceCup1.getFaceValueDie2());
 
             if (player1.getWon()){
                 break;
             }
-            //messageController.player2sTurn();
+            guiKlasse.player2TurnGui();
             playerController2.playerRoll();
+            guiKlasse.setDiceGui();
             //gui.setDice(diceCup1.getFaceValueDie1(), diceCup1.getFaceValueDie2());
 
             if (player2.getWon()){

@@ -18,21 +18,33 @@ import java.awt.*;
 import static gui_fields.GUI_Car.Type.CAR;
 
 public class GUI2{
-    GUI gui = new GUI();
 
     PlayerController player1, player2;
     MessageController message;
     DiceCupController diceCup;
+    DiceController diceController1, diceController2;
+
 
     public GUI2(PlayerController player1, PlayerController player2, MessageController message,
-                DiceCupController diceCup){
+                DiceCupController diceCup, DiceController diceController1, DiceController diceController2){
         this.player1 = player1;
         this.player2 = player2;
         this.message = message;
         this.diceCup = diceCup;
+        this.diceController1 = diceController1;
+        this.diceController2 = diceController2;
+
     }
 
-    public GUI guiCreator(){
+    public void guiCreator(){
+        GUI_Field[] felter = new GUI_Field[12];
+        GUI gui = new GUI(felter);
+        //GUI_Field
+        //GUI.setNull_fields_allowed(true);
+        for (int i = 0; i < felter.length; i++){
+            felter[i]= new GUI_Street(""+i, "", "", "", Color.YELLOW, Color.BLACK);
+        }
+
         //GUI_Car
         GUI_Car[] car = new GUI_Car[2];
         for (int i = 0; i < car.length; i++) {
@@ -47,13 +59,6 @@ public class GUI2{
         GUI_Player guiPlayer1 = new GUI_Player(player1.getName(), player1.getBalance(), car[0]);
         GUI_Player guiPlayer2 = new GUI_Player(player2.getName(), player2.getBalance(), car[1]);
 
-        //GUI_Field
-    GUI_Field[] felter = new GUI_Field[12];
-    //GUI.setNull_fields_allowed(true);
-    for (int i = 0; i < felter.length; i++){
-        felter[i]= new GUI_Street(""+i, "", "", "", Color.YELLOW, Color.BLACK);
-    }
-    GUI gui2 = new GUI(felter);
 
     //    felter[0].hasCar(guiPlayer1);
     felter[player1.getSum()].setCar(guiPlayer1, true);
@@ -77,7 +82,6 @@ public class GUI2{
     felter[9].setTitle("The Werewall");
     felter[10].setTitle("The Pit");
     felter[11].setTitle("Goldmine");
-    return gui2;
     }
 
     public void setGuiCar(){
@@ -95,10 +99,20 @@ public class GUI2{
    }
     public void enterNamePlayer2(){
     message.enterNamePlayer2();
-        player2.setName(gui.getUserString(""));
-
+    player2.setName(gui.getUserString(""));
     }
-/*Bilag 1 Metoder i GUI'en (teksten er fra javadoc, derfor er den på engelsk)
+    public void setDiceGui(){
+        gui.setDice(diceController1.getFaceValue(), diceController2.getFaceValue());
+    }
+
+    public void player1TurnGui(){
+        gui.showMessage(message.player1sTurn());
+    }
+    public void player2TurnGui(){
+        gui.showMessage(message.player2sTurn());
+    }
+
+    /*Bilag 1 Metoder i GUI'en (teksten er fra javadoc, derfor er den på engelsk)
 
 public static void addPlayer(String name, int balance, int r, int g, int b)
 Adds a player to the board.

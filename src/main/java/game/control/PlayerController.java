@@ -26,7 +26,6 @@ public class PlayerController {
 
     public void playerRoll(){
         diceCup.rollSum();
-        gui.setDice(diceController1.getFaceValue(), diceController2.getFaceValue());
 
         if (diceController1.getFaceValue() == diceController2.getFaceValue()){
             playerGotTwoOfEqualValue();

@@ -28,8 +28,9 @@ public class MessageController {
         return returnString;
         }
 
-        public void player2sTurn(){
+        public String player2sTurn(){
             String returnString = ("It's " + player2.getName() + "'s turn! Press enter to roll!");
+            return returnString;
         }
 
         public String startGame(){
