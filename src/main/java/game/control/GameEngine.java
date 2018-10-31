@@ -4,7 +4,11 @@ import game.model.Message;
 import game.model.DiceCup;
 import game.model.Player;
 import game.view.GUI2;
+import gui_fields.GUI_Field;
+import gui_fields.GUI_Street;
 import gui_main.GUI;
+
+import java.awt.*;
 
 public class GameEngine {
 
@@ -12,24 +16,6 @@ public class GameEngine {
 
     //The method from where the game runs.
     public void playGame(){
-
-
-        /*
-
-        (Man kan ikke slå 1 med to terninger)
-        Tower 		+250
-        Crater 		-100
-        Palace gates		+100
-        Cold Desert	 	-20
-        Walled city 		+180
-        Monastery 		0
-        Black cave 		-70
-        Huts in the mountain 		+60
-        The Werewall (werewolf-wall)		-80,	men spilleren får en ekstra tur.
-                The pit 		-50
-        Goldmine 		+650
-*/
-
 
         //Model
         Dice die1 = new Dice();
@@ -44,7 +30,6 @@ public class GameEngine {
         DiceController diceController2 = new DiceController(die2);
         DiceCupController diceCupController = new DiceCupController(diceCup, diceController1, diceController2);
 
-
         //Controller
         PlayerController playerController1 = new PlayerController(player1, diceCupController, diceController1,
                 diceController2);
@@ -52,12 +37,11 @@ public class GameEngine {
                 diceController2);
         MessageController messageController = new MessageController(message, player1, player2);
 
-
         //View
         GUI2 guiKlasse = new GUI2(playerController1, playerController2, messageController,
                 diceCupController, diceController1, diceController2);
 
-        guiKlasse.guiCreator();
+        guiKlasse.setGameUpGui();
         guiKlasse.startGameGui();
 
         //Set player names
