@@ -14,13 +14,13 @@ public class GUI2 {
     private MessageController message;
     private DiceCupController diceCup;
     private DiceController diceController1, diceController2;
-    private static GUI gui = guiCreator();
+    private static GUI gui;
     private static GUI_Field[] felter;
     private GUI_Player guiPlayer1, guiPlayer2;
 
     public GUI2(PlayerController player1, PlayerController player2, MessageController message,
                 DiceCupController diceCup, DiceController diceController1, DiceController diceController2) {
-        //this.gui = gui;
+        gui = guiCreator();
         this.player1 = player1;
         this.player2 = player2;
         this.message = message;
