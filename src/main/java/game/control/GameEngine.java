@@ -36,6 +36,7 @@ public class GameEngine {
                 diceCupController, diceController1, diceController2);
 
         gui.setGameUpGui();
+
         gui.startGameGui();
 
         //Set player names

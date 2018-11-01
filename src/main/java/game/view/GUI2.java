@@ -20,7 +20,12 @@ public class GUI2 {
 
     public GUI2(PlayerController player1, PlayerController player2, MessageController message,
                 DiceCupController diceCup, DiceController diceController1, DiceController diceController2) {
-        gui = guiCreator();
+        felter = new  GUI_Field[12];
+        for (int i = 0; i < felter.length; i++) {
+            felter[i] = new GUI_Street("" + i, "", "", "", Color.YELLOW, Color.BLACK);
+        }
+        gui = new GUI(felter);
+
         this.player1 = player1;
         this.player2 = player2;
         this.message = message;
@@ -29,13 +34,13 @@ public class GUI2 {
         this.diceController2 = diceController2;
     }
 
-    public static GUI guiCreator() {
-        felter = new GUI_Field[12];
+    public static void guiCreator() {
+        //felter = new GUI_Field[12];
 
-        for (int i = 0; i < felter.length; i++) {
-            felter[i] = new GUI_Street("" + i, "", "", "", Color.YELLOW, Color.BLACK);
-        }
-        gui = new GUI(felter);
+        //for (int i = 0; i < felter.length; i++) {
+        //    felter[i] = new GUI_Street("" + i, "", "", "", Color.YELLOW, Color.BLACK);
+        //}
+        //gui = new GUI(felter);
 
         felter[0].setTitle("Start");
         felter[0].setDescription("Start");
@@ -55,10 +60,10 @@ public class GUI2 {
         felter[9].setTitle("The Werewall");
         felter[10].setTitle("The Pit");
         felter[11].setTitle("Goldmine");
-        return gui;
     }
 
     public void setGameUpGui() {
+        guiCreator();
         //GUI_Player
         GUI_Car[] car = new GUI_Car[2];
         for (int i = 0; i < car.length; i++) {
